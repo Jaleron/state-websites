@@ -17,10 +17,10 @@ function createTableData(stateName, fullLink, abbreviatedLink) {
 	const column3 = document.createTextNode(abbreviatedLink);
 
 	a1.append(column2);
-	a1.href = fullLink;
-	a1.target = '_blank';
 	a2.append(column3);
+	a1.href = fullLink;
 	a2.href = abbreviatedLink;
+	a1.target = '_blank';
 	a2.target = '_blank';
 
 	td1.append(column1);
