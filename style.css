@@ -14,3 +14,11 @@ table, th, td {
 	border-collapse: collapse;
 	padding: 5px 10px;
 }
+
+a:link, a:visited {
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: underline;
+}
