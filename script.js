@@ -1,6 +1,7 @@
 const stateNames = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 const stateAbbreviations = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
-let stateLinks = [];
+let fullLinks = [];
+let abbreviatedLinks = [];
 
 function createTableData(stateName, fullLink, abbreviatedLink) {
 	const table = document.querySelector('table');
@@ -19,7 +20,12 @@ function createTableData(stateName, fullLink, abbreviatedLink) {
 	tr.append(td1, td2, td3);
 	table.append(tr);
 }
-createTableData(1, 2, 3);
+
+for (let i = 0; i < 50; i++) {
+	fullLinks.push(`https://www.${stateNames[i].toLowerCase()}.gov`);
+	abbreviatedLinks.push(`https://www.${stateAbbreviations[i].toLowerCase()}.gov`);
+	createTableData(stateNames[i], fullLinks[i], abbreviatedLinks[i]);
+}
 
 // function createLI(stateLink) {
 // 	const li = document.createElement('li');
