@@ -9,39 +9,29 @@ function createTableData(stateName, fullLink, abbreviatedLink) {
 	const td1 = document.createElement('td');
 	const td2 = document.createElement('td');
 	const td3 = document.createElement('td');
+	const a1 = document.createElement('a');
+	const a2 = document.createElement('a');
 
 	const column1 = document.createTextNode(stateName);
 	const column2 = document.createTextNode(fullLink);
 	const column3 = document.createTextNode(abbreviatedLink);
 
+	a1.append(column2);
+	a1.href = fullLink;
+	a1.target = '_blank';
+	a2.append(column3);
+	a2.href = abbreviatedLink;
+	a2.target = '_blank';
+
 	td1.append(column1);
-	td2.append(column2);
-	td3.append(column3);
+	td2.append(a1);
+	td3.append(a2);
 	tr.append(td1, td2, td3);
 	table.append(tr);
 }
 
 for (let i = 0; i < 50; i++) {
-	fullLinks.push(`https://www.${stateNames[i].toLowerCase()}.gov`);
+	fullLinks.push(`https://www.${stateNames[i].toLowerCase().replace(' ', '')}.gov`);
 	abbreviatedLinks.push(`https://www.${stateAbbreviations[i].toLowerCase()}.gov`);
 	createTableData(stateNames[i], fullLinks[i], abbreviatedLinks[i]);
 }
-
-// function createLI(stateLink) {
-// 	const li = document.createElement('li');
-// 	const a = document.createElement('a');
-	
-// 	const node = document.createTextNode(stateLink);
-// 	a.appendChild(node);
-// 	a.href = stateLink;
-// 	a.target = '_blank';
-// 	li.appendChild(a);
-	
-// 	const ul = document.querySelector('ul');
-// 	ul.appendChild(li);
-// }
-
-// for (let i = 0; i < stateNames.length; i++) {
-// 	stateLinks.push(`https://www.${stateAbbreviations[i].toLowerCase()}.gov`);
-// 	createLI(stateLinks[i]);
-// }
