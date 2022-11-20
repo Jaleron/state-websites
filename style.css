@@ -15,6 +15,10 @@ table, th, td {
 	padding: 5px 10px;
 }
 
+table {
+	margin: auto;
+}
+
 a:link, a:visited {
 	text-decoration: none;
 }
