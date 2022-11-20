@@ -2,8 +2,9 @@ const stateNames = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'C
 const stateAbbreviations = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
 let stateLinks = [];
 
-for (let i = 0; i < stateAbbreviations.length; i++) {
+for (let i = 0; i < stateNames.length; i++) {
 	stateLinks.push(`https://www.${stateAbbreviations[i].toLowerCase()}.gov`);
+	createLI(stateLinks[i]);
 }
 
 function createLI(stateLink) {
@@ -18,8 +19,4 @@ function createLI(stateLink) {
 	
 	const ul = document.querySelector('ul');
 	ul.appendChild(li);
-}
-
-for (let i = 0; i < stateLinks.length; i++) {
-	createLI(stateLinks[i]);
 }
